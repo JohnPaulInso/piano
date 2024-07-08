@@ -31,6 +31,6 @@
 	        pressedKey.classList.add('pressed');
 	        setTimeout(() => {
 	            pressedKey.classList.remove('pressed');
-	        }, 200);
+	        }, 200000);
 	    }
 	}
