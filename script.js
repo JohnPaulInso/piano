@@ -41,12 +41,4 @@ document.addEventListener('DOMContentLoaded', () => {
 function playSound(note) {
     const audio = new Audio(`sounds/${note}.wav`);
     audio.play();
-
-    const pressedKey = document.querySelector(`.key[data-note="${note}"]`);
-    if (pressedKey) {
-        pressedKey.classList.add('pressed');
-        setTimeout(() => {
-            pressedKey.classList.remove('pressed');
-        }, 200);
-    }
 }
