@@ -3,7 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const pressedKeys = {};
 
     keys.forEach(key => {
-        key.addEventListener('click', () => playSound(key.dataset.note));
+        key.addEventListener('mousedown', () => {
+            const note = key.dataset.note;
+            playSound(note);
+            key.classList.add('pressed');
+        });
+        key.addEventListener('mouseup', () => {
+            key.classList.remove('pressed');
+        });
+        key.addEventListener('mouseleave', () => {
+            key.classList.remove('pressed');
+        });
     });
 
     document.addEventListener('keydown', (e) => {
@@ -37,6 +47,6 @@ function playSound(note) {
         pressedKey.classList.add('pressed');
         setTimeout(() => {
             pressedKey.classList.remove('pressed');
-        }, 200000);
+        }, 200);
     }
 }
